@@ -27,7 +27,7 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 		<div className='space-y-8'>
 			<section className='px-4'>
 				<div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
-					{products?.map((img, idx) => (
+					{productFetchedData?.carouselImages?.map((img, idx) => (
 						<Zoom key={idx}>
 							<img
 								onClick={() =>
@@ -37,9 +37,9 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 										content_ids: [productFetchedData?._id],
 									})
 								}
-								src={img}
+								src={img?.externalUrl}
 								alt='Product'
-								className='!w-full h-[350px] object-cover rounded-xl border'
+								className='!w-full h-[250px] object-cover rounded-xl border'
 							/>
 						</Zoom>
 					))}
