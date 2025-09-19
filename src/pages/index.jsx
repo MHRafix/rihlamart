@@ -1,3 +1,4 @@
+import Header from '@/components/Header/Header';
 import HomeMain from '@/components/HomeMain';
 import { gqlRequest } from '@/lib/api-client';
 import { All_Products_Query } from '@/lib/gql';
@@ -6,6 +7,7 @@ const HomePage = ({ dbData, fakeData }) => {
 	console.log({ dbData, fakeData });
 	return (
 		<div>
+			<Header fakeData={fakeData} />
 			<HomeMain dbData={dbData} fakeData={fakeData} />{' '}
 		</div>
 	);

@@ -39,7 +39,7 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 								}
 								src={img?.externalUrl}
 								alt='Product'
-								className='!w-full h-[250px] object-cover rounded-xl border'
+								className='!w-full !h-[250px] object-cover rounded-xl border'
 							/>
 						</Zoom>
 					))}
