@@ -6,7 +6,7 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 	return (
 		<div className='space-y-8'>
 			<section className='px-4'>
-				<div className='grid grid-cols-2 md:grid-cols-4 gap-4'>
+				<div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
 					{productFetchedData?.carouselImages?.map((img, idx) => (
 						<Zoom key={idx}>
 							<img
@@ -19,7 +19,7 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 								}
 								src={img?.externalUrl}
 								alt='Product'
-								className='!w-full !h-[250px] object-cover rounded-xl border'
+								className='!w-full h-[200px] sm:h-[250px] object-cover rounded-xl border'
 							/>
 						</Zoom>
 					))}
