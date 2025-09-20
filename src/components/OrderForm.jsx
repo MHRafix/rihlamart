@@ -40,7 +40,6 @@ export default function OrderForm({ productFetchedData }) {
 			});
 		},
 		onSuccess: (data) => {
-			console.log(data);
 			router.push(`/order-success?orderId=${data?.placeOrder?._id}`);
 		},
 	});

@@ -4,7 +4,6 @@ import { gqlRequest } from '@/lib/api-client';
 import { All_Products_Query } from '@/lib/gql';
 
 const HomePage = ({ dbData, fakeData }) => {
-	console.log({ dbData, fakeData });
 	return (
 		<div>
 			<Header fakeData={fakeData} />
