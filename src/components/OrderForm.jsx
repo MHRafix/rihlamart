@@ -97,7 +97,7 @@ export default function OrderForm({ productFetchedData }) {
 							required
 						/>
 						<FormTextArea
-							form_label='ঠিকানা'
+							form_label='ঠিকানা - (গ্রাম/ইউনিয়ন, পোস্ট, থানা - জেলা)'
 							name='address'
 							form={form}
 							required
@@ -112,7 +112,11 @@ export default function OrderForm({ productFetchedData }) {
 								<button
 									type='button'
 									variant='ghost'
-									className='rounded-none bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold py-4'
+									className={`rounded-none bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold py-4 ${
+										form.watch('quantity') === 1
+											? 'cursor-no-drop'
+											: 'cursor-pointer'
+									}`}
 									onClick={() =>
 										form.setValue(
 											'quantity',
@@ -131,7 +135,11 @@ export default function OrderForm({ productFetchedData }) {
 								<button
 									type='button'
 									variant='ghost'
-									className='rounded-none bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold py-4'
+									className={`rounded-none bg-purple-100 hover:bg-purple-200 text-purple-900 font-bold py-4 ${
+										form.watch('quantity') === 4
+											? 'cursor-no-drop'
+											: 'cursor-pointer'
+									}`}
 									onClick={() =>
 										form.setValue('quantity', (form.watch('quantity') ?? 1) + 1)
 									}

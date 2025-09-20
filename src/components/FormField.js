@@ -33,7 +33,7 @@ export const FormTextField = ({
 			/>
 
 			{form?.formState?.errors[name]?.message && (
-				<span className='text-red-500 mt-1'>
+				<span className='text-red-500 block mt-1'>
 					{form?.formState?.errors[name]?.message}
 				</span>
 			)}
@@ -52,20 +52,34 @@ export const FormTextArea = ({
 }) => {
 	return (
 		<div id='field_wrapper'>
-			<label id='input_label' htmlFor='field_label'>
+			<label
+				className={`${
+					form?.formState?.errors[name]?.message ? 'text-red-500' : ''
+				}`}
+				htmlFor='field_label'
+			>
 				{form_label}
 				{required && <span className='text-red-500 text-2xl ml-1'>*</span>}
 			</label>
 			<br />
 			<textarea
 				id={name}
-				className='border-input placeholder:text-gray-400 flex min-h-16 w-full rounded-md bg-transparent px-3 disabled:opacity-50 md:text-sm py-6 border border-gray-200 '
+				className={`border-input placeholder:text-gray-400 flex min-h-16 w-full rounded-md bg-transparent px-3 disabled:opacity-50 md:text-sm py-6 border border-gray-200 ${
+					form?.formState?.errors[name]?.message
+						? 'border border-red-500 placeholder:text-red-400'
+						: 'placeholder:text-gray-400 border border-gray-200 '
+				}`}
 				cols={cols}
 				placeholder={form_label}
 				rows={rows}
 				{...form.register(name)}
 				disabled={disabled}
-			></textarea>
+			></textarea>{' '}
+			{form?.formState?.errors[name]?.message && (
+				<span className='text-red-500 mt-1 block'>
+					{form?.formState?.errors[name]?.message}
+				</span>
+			)}
 		</div>
 	);
 };
