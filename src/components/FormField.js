@@ -9,20 +9,34 @@ export const FormTextField = ({
 }) => {
 	return (
 		<div id='field_wrapper'>
-			<label id='input_label' htmlFor='field_label'>
+			<label
+				className={`${
+					form?.formState?.errors[name]?.message ? 'text-red-500' : ''
+				}`}
+				htmlFor='field_label'
+			>
 				{form_label}
-				{required && <span id='required_sign'>*</span>}
+				{required && <span className='text-red-500 text-2xl ml-1'>*</span>}
 			</label>
 			<br />
 			<input
 				type={'text'}
 				id={name}
-				className='file:text-foreground placeholder:text-gray-400 selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 text-base shadow-xs transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm  py-6 border-gray-200 text-purple-950'
+				className={`file:text-foreground placeholder:text-gray-400 selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 text-base shadow-xs transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm  py-6 border-gray-200 text-purple-950 ${
+					form?.formState?.errors[name]?.message
+						? 'border border-red-500 placeholder:text-red-400'
+						: 'placeholder:text-gray-400 border border-gray-200 '
+				}`}
 				{...form.register(name)}
 				placeholder={form_label}
-				required={required}
 				disabled={disabled}
 			/>
+
+			{form?.formState?.errors[name]?.message && (
+				<span className='text-red-500 mt-1'>
+					{form?.formState?.errors[name]?.message}
+				</span>
+			)}
 		</div>
 	);
 };
@@ -40,7 +54,7 @@ export const FormTextArea = ({
 		<div id='field_wrapper'>
 			<label id='input_label' htmlFor='field_label'>
 				{form_label}
-				{required && <span id='required_sign'>*</span>}
+				{required && <span className='text-red-500 text-2xl ml-1'>*</span>}
 			</label>
 			<br />
 			<textarea
@@ -50,7 +64,6 @@ export const FormTextArea = ({
 				placeholder={form_label}
 				rows={rows}
 				{...form.register(name)}
-				required={required}
 				disabled={disabled}
 			></textarea>
 		</div>

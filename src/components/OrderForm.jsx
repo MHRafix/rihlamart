@@ -28,12 +28,7 @@ export default function OrderForm({ productFetchedData }) {
 	const form = useForm({
 		resolver: yupResolver(schema),
 		defaultValues: {
-			name: '',
-			phone: '',
-			address: '',
 			quantity: 1,
-			code: '',
-			specialNote: '',
 		},
 	});
 

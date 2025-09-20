@@ -3,26 +3,6 @@ import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
 const ProductDetails = ({ productData, productFetchedData }) => {
-	const products = [
-		'/products/101l.jpg',
-		'/products/102l.jpg',
-		'/products/103l.jpg',
-		'/products/104l.jpg',
-		'/products/105l.jpg',
-		'/products/106l.jpg',
-		'/products/107l.jpg',
-		'/products/108l.jpg',
-		'/products/109l.jpg',
-		'/products/110l.jpg',
-		'/products/111l.jpg',
-		'/products/112l.jpg',
-		'/products/113l.jpg',
-		'/products/114l.jpg',
-		'/products/115l.jpg',
-		'/products/116l.jpg',
-		'/products/117l.jpg',
-		'/products/118l.jpg',
-	];
 	return (
 		<div className='space-y-8'>
 			<section className='px-4'>
