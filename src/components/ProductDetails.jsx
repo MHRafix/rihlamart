@@ -1,4 +1,4 @@
-import { trackEvent } from '@/lib/fbPixel';
+import { event } from '@/lib/fbPixel';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
@@ -11,7 +11,7 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 						<Zoom key={idx}>
 							<img
 								onClick={() =>
-									trackEvent('ProductClicked', {
+									event('ProductClicked', {
 										value: productFetchedData?.salePrice,
 										currency: 'BDT',
 										content_ids: [productFetchedData?._id],

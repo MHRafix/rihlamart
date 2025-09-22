@@ -1,4 +1,4 @@
-import { trackEvent } from '@/lib/fbPixel';
+import { event } from '@/lib/fbPixel';
 import { Loader2 } from 'lucide-react';
 
 export const FormTextField = ({
@@ -23,7 +23,7 @@ export const FormTextField = ({
 			<input
 				type={'text'}
 				id={name}
-				onClick={() => trackEvent('FormClicked')}
+				onClick={() => event('FormClicked')}
 				className={`file:text-foreground placeholder:text-gray-400 selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 text-base shadow-xs transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm  py-6 border-gray-200 text-purple-950 ${
 					form?.formState?.errors[name]?.message
 						? 'border border-red-500 placeholder:text-red-400'

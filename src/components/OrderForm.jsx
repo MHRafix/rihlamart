@@ -1,4 +1,5 @@
 import { gqlRequest } from '@/lib/api-client';
+import { event } from '@/lib/fbPixel';
 import { Place_Order_Mutation } from '@/lib/gql';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation } from '@tanstack/react-query';
@@ -37,6 +38,17 @@ export default function OrderForm({ productFetchedData }) {
 			await gqlRequest({
 				query: Place_Order_Mutation,
 				variables: payload,
+			});
+			event('Purchase', {
+				value: payload?.payload?.total,
+				currency: 'BDT',
+				content_ids: [productFetchedData?._id],
+				contents: payload?.payload?.items?.map((item) => ({
+					code: item?.code,
+					quantity: item?.quantity,
+					item_price: item?.price,
+					id: item?.product,
+				})),
 			});
 		},
 		onSuccess: (data) => {
