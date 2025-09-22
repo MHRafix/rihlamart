@@ -1,5 +1,5 @@
 export const FB_PIXEL_ID =
-	process.env.NEXT_PUBLIC_FB_PIXEL_ID || '1104740558048901';
+	process.env.NEXT_PUBLIC_FB_PIXEL_ID || '25103151619292816';
 
 export const pageview = () => {
 	if (typeof window !== 'undefined') {

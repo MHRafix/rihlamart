@@ -74,10 +74,10 @@ export default function OrderForm({ productFetchedData }) {
 					address: values.address,
 				},
 				specialNote: values.specialNote,
-				total: 900 * values.quantity,
+				total: getTotalPrice(values.quantity),
 				deliveryFee: 0,
 				payment: {
-					amount: 900 * values.quantity,
+					amount: getTotalPrice(values.quantity),
 					method: 'CASH_ON_DELIVERY',
 					status: 'DUE',
 				},
@@ -223,3 +223,19 @@ export default function OrderForm({ productFetchedData }) {
 		</section>
 	);
 }
+
+const getTotalPrice = (quantity) => {
+	switch (quantity) {
+		case 1:
+			return 900;
+		case 2:
+			return 1700;
+		case 3:
+			return 2450;
+		case 4:
+			return 3200;
+
+		default:
+			break;
+	}
+};
