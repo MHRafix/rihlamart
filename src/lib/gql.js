@@ -12,7 +12,8 @@ export const All_Products_Query = gql`
 					key
 					externalUrl
 				}
-
+				code
+				model
 				carouselImages {
 					bucket
 					region

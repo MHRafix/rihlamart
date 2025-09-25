@@ -47,7 +47,7 @@ export default function OrderForm({ productFetchedData }) {
 					code: item?.code,
 					quantity: item?.quantity,
 					item_price: item?.price,
-					id: item?.product,
+					id: item?.productId,
 				})),
 			});
 		},
@@ -61,7 +61,16 @@ export default function OrderForm({ productFetchedData }) {
 			payload: {
 				items: [
 					{
-						product: productFetchedData?._id,
+						productId: productFetchedData?._id,
+						product: {
+							title: productFetchedData?.title,
+							code: productFetchedData?.code,
+							model: productFetchedData?.model,
+							orgUID: productFetchedData?.orgUID,
+							regularPrice: productFetchedData?.regularPrice,
+							salePrice: productFetchedData?.salePrice,
+							thumbnail: productFetchedData?.thumbnail,
+						},
 						price: 900, // static price, or calculate dynamically
 						quantity: values.quantity,
 						code: values.code,
@@ -85,7 +94,6 @@ export default function OrderForm({ productFetchedData }) {
 				orgUID: process.env.NEXT_PUBLIC_ANALYTICS_ORGANIZATION_UID,
 			},
 		};
-
 		placeOrder.mutate(payload);
 	};
 
