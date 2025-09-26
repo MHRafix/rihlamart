@@ -1,5 +1,6 @@
 import '@/styles/globals.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { useEffect } from 'react';
@@ -23,6 +24,29 @@ export default function App({ Component, pageProps }) {
 
 	return (
 		<>
+			<Head>
+				<title>Rihlamart – Shop the Best Products</title>
+				<meta
+					name='description'
+					content='Best deals on fashion, electronics, and more!'
+				/>
+
+				{/* ✅ Open Graph tags */}
+				<meta
+					property='og:title'
+					content='Rihlamart – Shop the Best Products'
+				/>
+				<meta property='og:description' content='Best deals on fashion' />
+				<meta property='og:type' content='website' />
+				<meta property='og:url' content='https://www.rihlamart.com/' />
+
+				<meta
+					property='og:image'
+					content='https://res.cloudinary.com/coderxone/image/upload/v1758320485/BLOG_THUMBNAIL_AND_BANNER/irna915e1tpjugsqw9cd.jpg'
+				/>
+				<meta property='og:image:width' content='1200' />
+				<meta property='og:image:height' content='630' />
+			</Head>
 			{/* Facebook Pixel Script (lazy load after page becomes interactive) */}
 			<Script
 				id='fb-pixel'
