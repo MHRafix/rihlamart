@@ -1,4 +1,5 @@
 import { event } from '@/lib/fbPixel';
+import Image from 'next/image';
 import Zoom from 'react-medium-image-zoom';
 import 'react-medium-image-zoom/dist/styles.css';
 
@@ -9,7 +10,7 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 				<div className='grid grid-cols-2 md:grid-cols-4 gap-2'>
 					{productFetchedData?.carouselImages?.map((img, idx) => (
 						<Zoom key={idx}>
-							<img
+							<Image
 								onClick={() =>
 									event('ProductClicked', {
 										value: productFetchedData?.salePrice,
@@ -19,7 +20,9 @@ const ProductDetails = ({ productData, productFetchedData }) => {
 								}
 								src={img?.externalUrl}
 								alt='Product'
-								className='!w-full h-[200px] sm:h-[250px] object-cover rounded-xl border'
+								className='!w-full !h-[200px] sm:!h-[250px] object-cover rounded-xl border'
+								width={400}
+								height={250}
 							/>
 						</Zoom>
 					))}

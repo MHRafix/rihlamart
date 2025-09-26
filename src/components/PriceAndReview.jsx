@@ -1,4 +1,5 @@
 // @ts-ignore
+import Image from 'next/image';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -37,10 +38,12 @@ const PriceAndReview = ({ productData }) => {
 					{productData?.reviewImages?.map((img, idx) => (
 						<SwiperSlide key={idx}>
 							<div className='relative w-full overflow-hidden rounded-2xl border'>
-								<img
+								<Image
 									src={img}
 									alt={`Review ${idx + 1}`}
-									className='w-full h-[500px] object-cover object-center transform transition-transform duration-500 group-hover:scale-110'
+									className='!w-full !h-[500px] object-cover object-center transform transition-transform duration-500 group-hover:scale-110'
+									width={400}
+									height={500}
 								/>
 							</div>
 						</SwiperSlide>
